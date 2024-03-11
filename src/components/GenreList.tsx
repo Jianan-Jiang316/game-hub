@@ -1,4 +1,6 @@
 import useGenres from "../hooks/useGenres";
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import getCroppedImageUrl from "./Services/image-url";
 
 const GenreList = () => {
   const { data } = useGenres();
@@ -11,11 +13,20 @@ const GenreList = () => {
   这样，你可以在后续的代码中直接使用这个新的 data 变量，而不需要再通过 useGenres() 返回的对象来访问它
   */
   return (
-    <ul>
+    <List>
       {data.map((genre) => (
-        <li key={genre.id}>{genre.name}</li>
+        <ListItem key={genre.id} paddingY="5px">
+          <HStack>
+            <Image
+              boxSize="32px"
+              borderRadius={8}
+              src={getCroppedImageUrl(genre.image_background)}
+            />
+            <Text fontSize="lg">{genre.name}</Text>
+          </HStack>
+        </ListItem>
       ))}
-    </ul>
+    </List>
     /*
     1.这里的{ }是JSX 中的花括号语法，用于插入 JavaScript 表达式。
     在这种情况下，花括号 { } 内部的部分是 JavaScript 表达式，用于在 JSX 中动态地生成内容

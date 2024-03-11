@@ -11,9 +11,12 @@ interface Props {
 
 const GameCardContainer = ({ children }: Props) => {
   return (
-    <Box width="220px" borderRadius={10} overflow="hidden">
+    <Box borderRadius={10} overflow="hidden">
       {children}
     </Box>
+    /*
+    如果组件设置width="100%"，意味着它会占据其父元素的整个宽度
+    */
   );
 };
 
