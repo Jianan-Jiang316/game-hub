@@ -1,9 +1,9 @@
 import useGenres from "../hooks/useGenres";
-import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 import getCroppedImageUrl from "./Services/image-url";
 
 const GenreList = () => {
-  const { data } = useGenres();
+  const { data, isLoading, error } = useGenres();
   /*
   这里的花括号用于从 useGenres() 返回的对象中提取 data 属性并赋值给一个名为 data 的变量
   useGenres() 函数返回的对象中的 data 属性的值被提取出来，并且赋值给了一个新创建的变量 data。这个过程称为解构赋值。
@@ -12,6 +12,9 @@ const GenreList = () => {
   而是 data 属性的值被复制到了一个新的变量 data 上。
   这样，你可以在后续的代码中直接使用这个新的 data 变量，而不需要再通过 useGenres() 返回的对象来访问它
   */
+  if (error) return null;
+
+  if (isLoading) return <Spinner />;
   return (
     <List>
       {data.map((genre) => (
