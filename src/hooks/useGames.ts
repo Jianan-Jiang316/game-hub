@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import apiClients from "../components/Services/api-clients";
-import { CanceledError } from "axios";
+
+import useData from "./useData";
 
 export interface Platform{
   id: number;
@@ -18,37 +16,18 @@ export interface Game {
 
   }
   
-  interface FetchGameResponse {
-    count: number;
-    results: Game[];
-  }
   
-const useGames = () => {
-    const [games, setGames] = useState<Game[]>([]);
-    const [error, setError] = useState("");
-    const [isLoading, setLoading]= useState(false);
-  
-    useEffect(() => {
-      const controller = new AbortController();
+/*const useGames = () => { return useData<Game>("/games")
+    
+ }*/
 
-      setLoading(true);
+/*
+1.这里的两行代码的逻辑是一模一样的， 但是上面的代码用{ }标出了{代码体}
+所以你要接住useData返回的值， 就必须要有return 
+2. 而下面这行代码，去掉了{ }表示代码块，代码块中只有一行代码， 可以直接省略{}，
+这样省略的结果就是， 直接接住了useData返回的值， 不用多加return 
 
-      apiClients
-        .get<FetchGameResponse>("/games", {signal: controller.signal})
-        .then((res) => {
-          setGames(res.data.results);
-          setLoading(false);
-        })
-        .catch((err) => {
-            if(err instanceof CanceledError) return;
-            setError(err.message)
-            setLoading(false);
-        });
-        return () => controller.abort();
-    },[]);
-      
-  
-    return {games, error,isLoading};
-}
+*/
+const useGames = () => useData<Game>("/games");
 
 export default useGames;
