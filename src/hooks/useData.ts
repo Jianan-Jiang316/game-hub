@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import apiClients from "../components/Services/api-clients";
+import apiClients from "../services/api-clients";
 import { AxiosRequestConfig, CanceledError } from "axios";
 
 
