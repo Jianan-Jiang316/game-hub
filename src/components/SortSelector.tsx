@@ -6,7 +6,6 @@ interface Props {
   sortOrder: string;
 }
 
-// start from here
 const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   const sortOrders = [
     { value: " ", label: "Relevance" },

@@ -26,7 +26,6 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
   这样，你可以在后续的代码中直接使用这个新的 data 变量，而不需要再通过 useGenres() 返回的对象来访问它
   */
   if (error) return null;
-  // start from here
 
   if (isLoading) return <Spinner />;
   return (
