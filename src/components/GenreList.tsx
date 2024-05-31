@@ -60,14 +60,6 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
         ))}
       </List>
     </>
-    /*
-    1.这里的{ }是JSX 中的花括号语法，用于插入 JavaScript 表达式。
-    在这种情况下，花括号 { } 内部的部分是 JavaScript 表达式，用于在 JSX 中动态地生成内容
-    2..map() 是 JavaScript 数组的一个方法。它用于创建一个新数组，该数组的元素是调用传入的函数对原始数组中
-    的每个元素进行处理后的结果。
-    在 React 中，通常会将这个方法用于渲染列表
-    
-    */
   );
 };
 

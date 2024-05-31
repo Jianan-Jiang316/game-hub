@@ -5,18 +5,25 @@ interface Props {
   children: ReactNode;
 }
 /*
-在 React 中，children 是一个特殊的属性，它表示组件的子元素
-当一个组件包含了其他组件作为其子元素时，这些子元素会被作为 children 属性传递给父组件
+Props 接口定义了组件接受的属性结构。在这里，它指定了 children 属性的类型为 ReactNode，
+这是一个泛型类型，用于表示 React 节点。
 */
 
 const GameCardContainer = ({ children }: Props) => {
+  /*GameCardContainer 组件接受一个名为 children 的属性，其类型由 Props 接口定义。
+  通过对象解构，从 Props 接口中获取到 children 属性。*/
   return (
     <Box borderRadius={10} overflow="hidden">
       {children}
     </Box>
     /*
-    如果组件设置width="100%"，意味着它会占据其父元素的整个宽度
+    在组件内部，它返回一个 Box 组件，假设来自于像 Material-UI 这样的 UI 库。
+    这个 Box 组件设置了 borderRadius 为 10，overflow 为 "hidden"。
     */
+    /*
+   children 属性被渲染在 Box 组件内部。这意味着任何作为 GameCardContainer
+   的子组件或子元素传入的内容都会被渲染在 Box 内部。
+   */
   );
 };
 

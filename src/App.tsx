@@ -31,13 +31,13 @@ function App() {
   return (
     <Grid
       templateAreas={{
-        base: `"nav" "main"`,
+        base: `"nav" "main"` /*按每一行来算的， 每一行都排些什么，从左到右*/,
         lg: `"nav nav" "aside main"`,
       }}
       /*横布局*/
       templateColumns={{
-        base: "1fr",
-        lg: "200px 1fr",
+        base: "1fr" /*一列占满所有的地方*/,
+        lg: "200px 1fr" /* aside panel占200px, 剩下的grid部分占满剩下的所有部分*/,
       }}
       /*竖布局*/
     >
